@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: manager
+  server:
+    port: 8080
+  flyway:
+    enabled: true
+    baseline-on-migrate: false
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/manager
+    username: postgres
+    password: admin
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: none
+      database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+client:
+  facebook:
+    url: https://graph.facebook.com/v4.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: beans,env
+  endpoint:
+    health:
+      show-details: always
